@@ -1,6 +1,6 @@
 # FS-App-Template
 
-hi!
+hi
 
 ## Setup
 
