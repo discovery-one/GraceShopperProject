@@ -2,14 +2,16 @@ const router = require('express').Router();
 const {
   models: { Product },
 } = require('../db');
-module.exports = router;
 
 // GET request api/products
 router.get('/', async (req, res, next) => {
   try {
     const products = await Product.findAll();
     res.json(products);
+    console.log('PRODUCTS --->', products);
   } catch (err) {
     next(err);
   }
 });
+
+module.exports = router;
