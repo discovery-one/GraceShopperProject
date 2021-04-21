@@ -28,8 +28,8 @@ Now that you've got the code, follow these steps to get acclimated:
 - These commands will create both your **development** and **test** databases
 
 ```
-createdb <YOUR APP NAME HERE FROM package.json>
-createdb <YOUR APP NAME HERE FROM package.json>-test
+createdb grace-shopper
+createdb grace-shopper-test
 ```
 
 - By default, running `npm test` will use your test database, while
