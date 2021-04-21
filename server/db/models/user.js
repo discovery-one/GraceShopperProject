@@ -7,7 +7,7 @@ const axios = require('axios');
 const SALT_ROUNDS = 5;
 
 const User = db.define('user', {
-  username: {
+  email: {
     type: Sequelize.STRING,
     unique: true,
     allowNull: false,
@@ -28,8 +28,6 @@ const User = db.define('user', {
     allowNull: false,
   },
 });
-
-module.exports = User;
 
 /**
  * instanceMethods
@@ -86,3 +84,5 @@ User.beforeUpdate(hashPassword);
 User.beforeBulkCreate((users) => {
   users.forEach(hashPassword);
 });
+
+module.exports = User;
