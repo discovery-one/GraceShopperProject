@@ -1,8 +1,5 @@
 const router = require('express').Router();
-const {
-  models: { Product },
-} = require('../db');
-module.exports = router;
+const Product = require('../../server/db/models/product');
 
 // GET request api/products
 router.get('/', async (req, res, next) => {
@@ -13,3 +10,19 @@ router.get('/', async (req, res, next) => {
     next(err);
   }
 });
+
+router.get('/:id', async (req, res, next) => {
+  try {
+    const productId = req.params.id;
+    const singleProduct = await Product.findAll({
+      where: {
+        id: productId,
+      },
+    });
+    res.json(singleProduct);
+  } catch (err) {
+    next(err);
+  }
+});
+
+module.exports = router;
