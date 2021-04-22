@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const initialState = [];
+const initialState = {};
 
 //action types:
 const GET_CART = 'GET_CART';
@@ -18,10 +18,13 @@ export const getCart = (order) => ({
 });
 
 //thunk creators:
-export const addToCartThunk = (productId, history) => {
+export const addToCartThunk = (orderId, productId, product, history) => {
   return async (dispatch) => {
     try {
-      const { data: added } = await axios.put(`/api/cart`);
+      const { data: added } = await axios.put(
+        `/api/cart/${orderId}/products/${productId}`,
+        product
+      );
       dispatch(addToCart(added));
       // history.push(`/product/`)
     } catch (error) {
@@ -45,5 +48,9 @@ export default function cartReducer(state = initialState, action) {
   switch (action.type) {
     case GET_CART:
       return action.order;
+    case ADD_TO_CART:
+      return action.product;
+    default:
+      return state;
   }
 }
