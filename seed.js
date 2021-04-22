@@ -3,12 +3,15 @@ const { db } = require('./server/db');
 const Product = require('./server/db/models/product');
 const User = require('./server/db/models/user');
 const Order = require('./server/db/models/order');
+const OrdersProducts = require('./server/db/index');
 
 const products = [
   {
     name: 'Star Sugar Cookies',
     imageUrl:
       'https://i.pinimg.com/564x/ee/64/be/ee64be94afaee801f68215d7df98dadb.jpg',
+    category: 'cookies',
+    soldAs: 'bulk',
     price: 3900,
     shortDescription: 'Iced vanilla sugar cookies',
     longDescription:
@@ -18,6 +21,8 @@ const products = [
     name: 'Galactic Yule Log',
     imageUrl:
       'https://i.pinimg.com/564x/03/cf/f1/03cff100d379a702b1d5de6eeb8b819d.jpg',
+    category: 'cakes',
+    soldAs: 'singular',
     price: 4500,
     shortDescription: 'Lemon cake with custom frosting',
     longDescription:
@@ -27,6 +32,8 @@ const products = [
     name: 'Baby Yoda Cookies',
     imageUrl:
       'https://i.pinimg.com/564x/d8/77/ce/d877ce09a587b3eccb61d2e5eb6c438a.jpg',
+    category: 'cookies',
+    soldAs: 'bulk',
     price: 4500,
     shortDescription: 'Vanilla sugar cookies',
     longDescription:
@@ -36,6 +43,8 @@ const products = [
     name: 'Galaxy Chocolate Cake',
     imageUrl:
       'https://i.pinimg.com/564x/af/86/99/af8699e8a975f7574fc189e258fb42e0.jpg',
+    category: 'cakes',
+    soldAs: 'singular',
     price: 5500,
     shortDescription: 'Rich chocolate cake and American buttercream',
     longDescription:
@@ -45,6 +54,8 @@ const products = [
     name: 'Old Fashioned Halo Doughnuts',
     imageUrl:
       'https://i.pinimg.com/564x/c6/35/89/c63589324fdc86e257ed2a96381c32ea.jpg',
+    category: 'confections',
+    soldAs: 'bulk',
     price: 3200,
     shortDescription: 'Vanilla bean glazed doughnuts',
     longDescription:
@@ -54,6 +65,8 @@ const products = [
     name: 'Signature Galactic Cookies',
     imageUrl:
       'https://i.pinimg.com/564x/37/c2/46/37c2465cdae025095d0086fbfc303456.jpg',
+    category: 'cookies',
+    soldAs: 'bulk',
     price: 3900,
     shortDescription: 'Lemon cookies and vanilla icing',
     longDescription:
@@ -63,6 +76,8 @@ const products = [
     name: 'Celestial Cheescake',
     imageUrl:
       'https://hips.hearstapps.com/del.h-cdn.co/assets/17/14/640x959/gallery-1491600711-delish-galaxy-cheesecake-pin-3.jpg?resize=980:*',
+    category: 'cakes',
+    soldAs: 'singular',
     price: 3500,
     shortDescription: 'Classic berry vanilla cheesecake',
     longDescription:
@@ -72,6 +87,8 @@ const products = [
     name: 'Galaxy Cupcakes',
     imageUrl:
       'https://i.pinimg.com/564x/ca/18/0f/ca180f2600d02be8ba12f148129877bb.jpg',
+    category: 'cakes',
+    soldAs: 'bulk',
     price: 4200,
     shortDescription: 'Chocolate cake and American buttercream',
     longDescription:
@@ -81,6 +98,8 @@ const products = [
     name: 'Milky Way Meringue Lollipops',
     imageUrl:
       'https://i.pinimg.com/564x/35/3c/08/353c089b9b0ae5a4e109069af6766777.jpg',
+    category: 'confections',
+    soldAs: 'bulk',
     price: 3900,
     shortDescription: 'Vanilla, lemon, or rose',
     longDescription:
@@ -90,6 +109,8 @@ const products = [
     name: 'Mystic Macarons',
     imageUrl:
       'https://i.pinimg.com/564x/f0/57/26/f05726935407e34ab06b45c1e76495bb.jpg',
+    category: 'cookies',
+    soldAs: 'bulk',
     price: 3900,
     shortDescription: 'Coffee, lemon, rose, chocolate, or vanilla',
     longDescription:
@@ -99,6 +120,8 @@ const products = [
     name: 'Solar System Cake Collection',
     imageUrl:
       'https://i.pinimg.com/564x/16/5e/81/165e817bbf7faa1635f8db5fc156fdb1.jpg',
+    category: 'cakes',
+    soldAs: 'singular',
     price: 7500,
     shortDescription: 'Lemon cake centerpiece with assorted mini cakes',
     longDescription:
@@ -108,6 +131,8 @@ const products = [
     name: 'Earthling Snickerdoodles',
     imageUrl:
       'https://i.pinimg.com/564x/34/c3/ad/34c3ad521f7328cade32bd12b47fa6e7.jpg',
+    category: 'cookies',
+    soldAs: 'bulk',
     price: 3400,
     shortDescription: 'Cinnamon sugar cookies',
     longDescription:
@@ -117,6 +142,8 @@ const products = [
     name: 'Galactic Popsicles',
     imageUrl:
       'https://i.pinimg.com/564x/3a/c9/28/3ac928e161af2b66bc3ef439623ede06.jpg',
+    category: 'confections',
+    soldAs: 'bulk',
     price: 3200,
     shortDescription: 'Sold May 25 - August 30',
     longDescription:
@@ -126,6 +153,8 @@ const products = [
     name: 'Wookiee Cookies',
     imageUrl:
       'https://i.pinimg.com/564x/8c/f0/c0/8cf0c0971f62766c8bda30818c00fb46.jpg',
+    category: 'cookies',
+    soldAs: 'bulk',
     price: 4500,
     shortDescription: 'Spiced gingersnaps',
     longDescription:
@@ -135,6 +164,8 @@ const products = [
     name: 'Star Wars Cake',
     imageUrl:
       'https://i.pinimg.com/564x/1b/b9/22/1bb922b7f0d2a3eb4a84fd0971b67a97.jpg',
+    category: 'cakes',
+    soldAs: 'singular',
     price: 7500,
     shortDescription: 'Vanilla or chocolate cake with custom frosting',
     longDescription:
@@ -144,6 +175,8 @@ const products = [
     name: 'Cosmic Covered Strawberries',
     imageUrl:
       'https://i.pinimg.com/564x/b2/9f/db/b29fdbc827bb23ca16c2754315adac53.jpg',
+    category: 'confections',
+    soldAs: 'bulk',
     price: 2800,
     shortDescription: 'Fresh strawberries covered in chocolate',
     longDescription:
@@ -153,6 +186,8 @@ const products = [
     name: 'Lunar Pies',
     imageUrl:
       'https://i.pinimg.com/564x/b3/c5/74/b3c5742c5a156abe82c9f156f3750e03.jpg',
+    category: 'cakes',
+    soldAs: 'bulk',
     price: 3900,
     shortDescription: 'Vanilla moon pies with American buttercream',
     longDescription:
@@ -162,6 +197,8 @@ const products = [
     name: 'Tiered Solar System Cake',
     imageUrl:
       'https://i.pinimg.com/564x/42/0c/35/420c355d0814dbd80f1f047c99d3155f.jpg',
+    category: 'cakes',
+    soldAs: 'singular',
     price: 15000,
     shortDescription: 'Custom multi-tiered cake',
     longDescription:
@@ -171,6 +208,8 @@ const products = [
     name: 'Star Trek Cupcakes',
     imageUrl:
       'https://i.pinimg.com/564x/f8/51/e0/f851e045ce0c42bfe81647ce578662c7.jpg',
+    category: 'cakes',
+    soldAs: 'bulk',
     price: 4500,
     shortDescription: 'Vanilla cake with American buttercream',
     longDescription:
@@ -180,6 +219,8 @@ const products = [
     name: 'Galactic Bark',
     imageUrl:
       'https://i.pinimg.com/564x/0e/7f/95/0e7f950830f2e9e973dee4a88c71d8a7.jpg',
+    category: 'confections',
+    soldAs: 'singular',
     price: 3200,
     shortDescription: 'Sold November 15 - January 15',
     longDescription:
@@ -189,6 +230,8 @@ const products = [
     name: 'Kirstie Cake Pops',
     imageUrl:
       'https://i.pinimg.com/564x/9f/4a/d7/9f4ad73ad13862f3de00720eadebff70.jpg',
+    category: 'cakes',
+    soldAs: 'bulk',
     price: 3200,
     shortDescription: 'Strawberry cake with vanilla icing',
     longDescription:
@@ -203,8 +246,24 @@ const users = [
     admin: false,
     password: 'password1',
   },
+  {
+    email: 'annie@gmail.com',
+    firstName: 'Annie',
+    lastName: 'Graceshopper',
+    admin: true,
+    password: 'password2',
+  },
 ];
-const orders = [];
+const orders = [
+  {
+    status: 'incomplete',
+    userId: 1,
+  },
+  {
+    status: 'complete',
+    userId: 2,
+  },
+];
 
 const seed = async () => {
   try {
@@ -219,6 +278,19 @@ const seed = async () => {
         return User.create(user);
       })
     );
+    const createdOrder = await Promise.all(
+      orders.map((order) => {
+        return Order.create(order);
+      })
+    );
+    const orderOne = await Order.findByPk(1);
+    await orderOne.setProducts(await Product.findByPk(7));
+    const orderTwo = await Order.findByPk(2);
+    await orderTwo.setProducts([
+      await Product.findByPk(15),
+      await Product.findByPk(3),
+      await Product.findByPk(20),
+    ]);
   } catch (err) {
     console.log(red(err));
   }

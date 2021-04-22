@@ -10,16 +10,20 @@ export class SingleProduct extends React.Component {
 
   render() {
     const product = this.props.product;
+    const price = this.props.product.price / 100;
     return (
       <div>
         <h2>{product.name}</h2>
         <br></br>
-        <div className="imageBox" data-aos="flip-up">
+        <div>
           <img src={product.imageUrl} />
         </div>
-        <div className="tierBox" data-aos="zoom-out-up">
-          {product.longDescription}
-        </div>
+        <div>{product.longDescription}</div>
+        {product.soldAs === 'bulk' ? (
+          <div>${price} per dozen</div>
+        ) : (
+          <div>${price}</div>
+        )}
       </div>
     );
   }

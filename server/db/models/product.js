@@ -8,8 +8,14 @@ const Product = db.define('product', {
     unique: true,
   },
   imageUrl: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
     allowNull: false,
+  },
+  category: {
+    type: Sequelize.ENUM('cakes', 'cookies', 'confections'),
+  },
+  soldAs: {
+    type: Sequelize.ENUM('singular', 'bulk'),
   },
   price: {
     type: Sequelize.INTEGER,
