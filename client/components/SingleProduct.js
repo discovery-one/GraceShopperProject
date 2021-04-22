@@ -1,7 +1,7 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { fetchSingleProduct } from '../store/singleProduct';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { connect } from "react-redux";
+import { fetchSingleProduct } from "../store/redux/singleProduct";
+import { Link } from "react-router-dom";
 
 export class SingleProduct extends React.Component {
   componentDidMount() {
