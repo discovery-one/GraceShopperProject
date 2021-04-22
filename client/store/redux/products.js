@@ -1,9 +1,9 @@
-import axios from 'axios';
+import axios from "axios";
 
 const initialState = [];
 
 //action types
-const SET_PRODUCTS = 'SET_PRODUCTS';
+const SET_PRODUCTS = "SET_PRODUCTS";
 
 //action creators
 export const setProducts = (products) => ({
@@ -15,7 +15,7 @@ export const setProducts = (products) => ({
 export const fetchProducts = () => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get('/api/products');
+      const { data } = await axios.get("/api/products");
       dispatch(setProducts(data));
     } catch (err) {
       console.log("something's wrong w/ fetchProducts! --->", err);
