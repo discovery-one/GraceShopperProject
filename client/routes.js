@@ -1,6 +1,6 @@
-import React, { Component, Fragment } from "react";
-import { connect } from "react-redux";
-import history from "./history";
+import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
+import history from './history';
 import {
   withRouter,
   Route,
@@ -8,11 +8,12 @@ import {
   Redirect,
   Router,
   Link,
-} from "react-router-dom";
-import { Login, Signup } from "./components/AuthForm";
-import Home from "./components/Home";
-import SingleProduct from "./components/SingleProduct";
-import { me } from "./store";
+} from 'react-router-dom';
+import { Login, Signup } from './components/AuthForm';
+import Home from './components/Home';
+import SingleProduct from './components/SingleProduct';
+import AllProducts from './components/AllProducts';
+import { me } from './store';
 
 /**
  * COMPONENT
@@ -32,9 +33,13 @@ class Routes extends Component {
             <Link to="/">Home</Link>
           </nav>
           <main>
-            <h1>All Our Products</h1>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/products/:id" component={SingleProduct} />
+            {/* <h1>All Our Products</h1> */}
+            <Switch>
+              <Route exact path="/products" component={AllProducts} />
+              <Route exact path="/products/:id" component={SingleProduct} />
+              <Route path="/" component={Home} />
+              <Route path="/cart/:id" component={Cart} />
+            </Switch>
           </main>
         </div>
       </Router>
