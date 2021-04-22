@@ -13,6 +13,7 @@ import { Login, Signup } from './components/AuthForm';
 import Home from './components/Home';
 import SingleProduct from './components/SingleProduct';
 import AllProducts from './components/AllProducts';
+import Cart from './components/cart';
 import { me } from './store';
 
 /**
@@ -30,15 +31,16 @@ class Routes extends Component {
       <Router history={history}>
         <div>
           <nav>
-            <Link to="/">Home</Link>
+            <Link to='/'>Home</Link>
           </nav>
           <main>
             {/* <h1>All Our Products</h1> */}
             <Switch>
-              <Route exact path="/products" component={AllProducts} />
-              <Route exact path="/products/:id" component={SingleProduct} />
-              <Route path="/" component={Home} />
-              <Route path="/cart/:id" component={Cart} />
+              <Route exact path='/products' component={AllProducts} />
+              <Route path='/products/:id' component={SingleProduct} />
+              <Route path='/cart/:id' component={Cart} />
+
+              <Route path='/' component={Home} />
             </Switch>
           </main>
         </div>
