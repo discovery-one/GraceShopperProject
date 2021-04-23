@@ -1,23 +1,32 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getCartThunk } from '../store/redux/cart';
+import { getCartThunk, deleteItemThunk } from '../store/redux/cart';
 import { Link } from 'react-router-dom';
 
 // + Product Name
 // + Image
 // + Price
-// + Quantity
-// + Update Buttons
-// + Delete Button
-// + Checkout Button
+//  Quantity
+//  Update Buttons
+// Delete Button
+// Checkout Button
 
 class Cart extends React.Component {
+  constructor() {
+    super();
+    this.clickHandler = this.clickHandler.bind(this);
+  }
   componentDidMount() {
     this.props.getCart(this.props.match.params.id);
   }
 
+  clickHandler(orderId, productId) {
+    this.props.deleteItem(orderId, productId);
+  }
+
   render() {
     const products = this.props.cart.products || [];
+
     return (
       <div>
         <h1>Shop All Galaxy Sweets</h1>
@@ -37,7 +46,12 @@ class Cart extends React.Component {
                     </Link>
                     <button
                       type='button'
-                      onClick={() => this.addToCart(product.id)}
+                      onClick={() =>
+                        this.clickHandler(
+                          product.orders_products.orderId,
+                          product.id
+                        )
+                      }
                     >
                       Delete
                     </button>
@@ -59,8 +73,10 @@ const mapStateToProps = (state) => ({
   //   products: state.products,
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch, { history }) => ({
   getCart: (order) => dispatch(getCartThunk(order)),
+  deleteItem: (orderId, productId) =>
+    dispatch(deleteItemThunk(orderId, productId, history)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);
