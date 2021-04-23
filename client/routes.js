@@ -13,7 +13,7 @@ import { Login, Signup } from './components/AuthForm';
 import Home from './components/Home';
 import SingleProduct from './components/SingleProduct';
 import AllProducts from './components/AllProducts';
-import Cart from './components/cart';
+import Cart from './components/Cart';
 import { me } from './store';
 import Navbar from './components/navbar';
 import AdminProducts from './components/AdminProducts';
@@ -34,24 +34,24 @@ class Routes extends Component {
         <div>
           {/* <Navbar /> */}
           <nav>
-            <Link to="/">Home</Link>
+            <Link to='/'>Home</Link>
           </nav>
           {isAdmin ? (
             <main>
               <Switch>
-                <Route exact path="/products" component={AdminProducts} />
-                <Route path="/products/:id" component={AdminSingleProduct} />
-                <Route path="/cart/:id" component={Cart} />
-                <Route path="/" component={Home} />
+                <Route exact path='/products' component={AdminProducts} />
+                <Route path='/products/:id' component={AdminSingleProduct} />
+                <Route path='/cart/:id' component={Cart} />
+                <Route path='/' component={Home} />
               </Switch>
             </main>
           ) : (
             <main>
               <Switch>
-                <Route exact path="/products" component={AllProducts} />
-                <Route path="/products/:id" component={SingleProduct} />
-                <Route path="/cart/:id" component={Cart} />
-                <Route path="/" component={Home} />
+                <Route exact path='/products' component={AllProducts} />
+                <Route path='/products/:id' component={SingleProduct} />
+                <Route path='/cart/:id' component={Cart} />
+                <Route path='/' component={Home} />
               </Switch>
             </main>
           )}
