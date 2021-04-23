@@ -1,7 +1,7 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { fetchProducts } from '../store/redux/products';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { connect } from "react-redux";
+import { fetchProducts } from "../store/redux/products";
+import { Link } from "react-router-dom";
 
 class AllProducts extends React.Component {
   constructor() {
@@ -22,20 +22,20 @@ class AllProducts extends React.Component {
     return (
       <div>
         <h1>Shop All Galaxy Sweets</h1>
-        <ul className='all-product-view'>
+        <ul className="all-product-view">
           {products.map((product) => {
             return (
               <div key={product.id}>
                 <Link to={`/products/${product.id}`}>
                   <div>
                     <h2>{product.name}</h2>
-                    <img className='product-image' src={product.imageUrl} />
+                    <img className="product-image" src={product.imageUrl} />
                     <p>{product.shortDescription}</p>
                     <h6>${product.price / 100}</h6>
                   </div>
                 </Link>
                 <button
-                  type='button'
+                  type="button"
                   onClick={() => this.addToCart(product.id)}
                 >
                   Add To Cart
