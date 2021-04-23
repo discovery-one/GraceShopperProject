@@ -1,6 +1,6 @@
-import React, { Component, Fragment } from 'react';
-import { connect } from 'react-redux';
-import history from './history';
+import React, { Component, Fragment } from "react";
+import { connect } from "react-redux";
+import history from "./history";
 import {
   withRouter,
   Route,
@@ -8,16 +8,17 @@ import {
   Redirect,
   Router,
   Link,
-} from 'react-router-dom';
-import { Login, Signup } from './components/AuthForm';
-import Home from './components/Home';
-import SingleProduct from './components/SingleProduct';
-import AllProducts from './components/AllProducts';
-import Cart from './components/cart';
-import { me } from './store';
-import Navbar from './components/navbar';
-import AdminProducts from './components/AdminProducts';
-import AdminSingleProduct from './components/AdminSingleProduct';
+} from "react-router-dom";
+import { Login, Signup } from "./components/AuthForm";
+//import AuthForm from "./components/Authform.js";
+import Home from "./components/Home";
+import SingleProduct from "./components/SingleProduct";
+import AllProducts from "./components/AllProducts";
+import Cart from "./components/cart";
+import { me } from "./store";
+import Navbar from "./components/navbar";
+import AdminProducts from "./components/AdminProducts";
+import AdminSingleProduct from "./components/AdminSingleProduct";
 
 /**
  * COMPONENT
@@ -32,10 +33,6 @@ class Routes extends Component {
     return (
       <Router history={history}>
         <div>
-          {/* <Navbar /> */}
-          <nav>
-            <Link to="/">Home</Link>
-          </nav>
           {isAdmin ? (
             <main>
               <Switch>
@@ -48,10 +45,12 @@ class Routes extends Component {
           ) : (
             <main>
               <Switch>
+                <Route exact path="/" component={Home} />
+                <Route path="/login" component={Login} />
+                <Route path="/signup" component={Signup} />
                 <Route exact path="/products" component={AllProducts} />
                 <Route path="/products/:id" component={SingleProduct} />
                 <Route path="/cart/:id" component={Cart} />
-                <Route path="/" component={Home} />
               </Switch>
             </main>
           )}
