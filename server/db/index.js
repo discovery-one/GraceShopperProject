@@ -10,6 +10,7 @@ const Order = require('./models/order');
 const OrdersProducts = db.define('orders_products', {
   quantity: {
     type: Sequelize.INTEGER,
+    defaultValue: 1,
   },
   priceSnapshot: {
     type: Sequelize.INTEGER,

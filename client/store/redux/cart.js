@@ -6,6 +6,7 @@ const initialState = [];
 const GET_CART = 'GET_CART';
 const ADD_TO_CART = 'ADD_TO_CART';
 const DELETE_ITEM = 'DELETE_ITEM';
+const INCREMENT_ITEM = 'INCREMENT_ITEM';
 
 //action creator:
 export const addToCart = (product) => ({
@@ -20,6 +21,11 @@ export const getCart = (order) => ({
 
 export const deleteItem = (product) => ({
   type: DELETE_ITEM,
+  product,
+});
+
+export const incrementItem = (product) => ({
+  type: INCREMENT_ITEM,
   product,
 });
 
@@ -64,6 +70,22 @@ export const deleteItemThunk = (orderId, productId, product, history) => {
   };
 };
 
+export const incrementItemThunk = (orderId, productId, product, history) => {
+  return async (dispatch) => {
+    try {
+      const { data: incrementedItem } = await axios.put(
+        `/api/cart/${orderId}/products/${productId}`,
+        product
+      );
+      console.log('increThunk-', incrementedItem);
+      dispatch(incrementItem(incrementedItem));
+      // history.push(`/cart/${orderId}`);
+    } catch (err) {
+      console.log("something's wrong w/ IncrementItemThunk! --->", err);
+    }
+  };
+};
+
 export default function cartReducer(state = initialState, action) {
   switch (action.type) {
     case GET_CART:
@@ -72,6 +94,9 @@ export default function cartReducer(state = initialState, action) {
       return action.product;
     case DELETE_ITEM:
       return action.product;
+    case INCREMENT_ITEM:
+      console.log('increment->', action);
+    // return action.product.quantity++;
     default:
       return state;
   }
