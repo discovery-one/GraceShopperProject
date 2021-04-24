@@ -11,7 +11,7 @@ import {
 } from 'react-router-dom';
 import { Login, Signup } from './components/AuthForm';
 //import AuthForm from "./components/Authform.js";
-import Home from './components/Home';
+import Home from './components/home';
 import SingleProduct from './components/SingleProduct';
 import AllProducts from './components/AllProducts';
 import Cart from './components/cart';
