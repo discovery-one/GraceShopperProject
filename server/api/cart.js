@@ -1,7 +1,9 @@
 const router = require('express').Router();
 const Order = require('../db/models/order');
 const Product = require('../db/models/product');
+const Sequelize = require('sequelize');
 
+//GET request for an order
 router.get('/:id', async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -16,6 +18,7 @@ router.get('/:id', async (req, res, next) => {
   }
 });
 
+//PUT request
 router.put('/:id/products/:productId', async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -27,7 +30,19 @@ router.put('/:id/products/:productId', async (req, res, next) => {
         model: Product,
       },
     });
+
     const associatedProduct = await Product.findByPk(req.params.productId);
+
+    // await associatedProduct.update(req.body, {
+    //   include: {
+    //     model: Order,
+
+    //     where: {
+    //       quantity: req.body.quantity++,
+    //     },
+    //   },
+    // });
+
     const addedProduct = await order.addProduct(associatedProduct);
     res.send(addedProduct);
   } catch (err) {
