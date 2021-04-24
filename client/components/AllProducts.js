@@ -1,7 +1,7 @@
-import React from "react";
-import { connect } from "react-redux";
-import { fetchProducts } from "../store/redux/products";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { connect } from 'react-redux';
+import { fetchProducts } from '../store/redux/products';
+import { Link } from 'react-router-dom';
 
 class AllProducts extends React.Component {
   constructor() {
