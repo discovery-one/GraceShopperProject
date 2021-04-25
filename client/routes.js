@@ -36,6 +36,9 @@ class Routes extends Component {
         <div>
           {isAdmin ? (
             <main>
+              <div>
+                <Link to="/users/">View All Users</Link>
+              </div>
               <Switch>
                 <Route exact path="/" component={Home} />
                 <Route path="/login" component={Login} />

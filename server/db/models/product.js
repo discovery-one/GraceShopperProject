@@ -9,7 +9,7 @@ const Product = db.define('product', {
   },
   imageUrl: {
     type: Sequelize.TEXT,
-    allowNull: false,
+    allowNull: true,
   },
   category: {
     type: Sequelize.ENUM('cakes', 'cookies', 'confections'),

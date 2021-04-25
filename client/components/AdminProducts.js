@@ -1,22 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchProducts } from '../store/redux/products';
+import { fetchProducts, fetchDeleteProduct } from '../store/redux/products';
 import { Link } from 'react-router-dom';
+import CreateProduct from './CreateProduct';
 
 class AllProducts extends React.Component {
   constructor() {
     super();
-    // this.clickHandler = this.clickHandler.bind(this);
   }
 
   componentDidMount() {
     this.props.loadProducts();
   }
-
-  // clickHandler(productId) {
-  //   this.props.addToCart()
-  //    this.props.deleteProduct()
-  // }
 
   render() {
     const products = this.props.products;
@@ -32,7 +27,11 @@ class AllProducts extends React.Component {
                     <h2>{product.name}</h2>
                     <img className="product-image" src={product.imageUrl} />
                     <p>{product.shortDescription}</p>
-                    <h6>${product.price / 100}</h6>
+                    {product.soldAs === 'bulk' ? (
+                      <div>${product.price / 100} per dozen</div>
+                    ) : (
+                      <div>${product.price / 100}</div>
+                    )}
                   </div>
                 </Link>
                 <button
@@ -47,7 +46,7 @@ class AllProducts extends React.Component {
         </ul>
         <div>
           <h2>Add a New Product</h2>
-          {/* <CreateProduct /> */}
+          <CreateProduct />
         </div>
       </div>
     );
@@ -61,7 +60,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch, { history }) => ({
   loadProducts: () => dispatch(fetchProducts()),
   addToCart: (productId) => dispatch(addToCartThunk(productId)),
-  deleteProduct: (productId) => dispatch(deleteProduct(productId)),
+  deleteProduct: (productId) => dispatch(fetchDeleteProduct(productId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AllProducts);
