@@ -34,8 +34,35 @@ form div {
 }
 
 .navbar {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
+
+.nav-links {
+  list-style: none;
+}
+
+.nav-links li {
+  display: inline-block;
+  padding: 0px 10px;
+}
+
+.nav-links li a {
+  color: black;
+  transition: all 0.3s ease 0s;
+}
+
+.nav-links li a:hover {
+  color: #ff80e4;
+}
+
+/* .circle {
+  background: #ff80e4;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+} */
 
 /* HERO AREA */
 
@@ -181,4 +208,47 @@ form div {
 
 .linkedin-logo {
   width: 40px;
+}
+
+/*ALL PRODUCTS PAGE*/
+
+.all-product-view {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+.all-products {
+  display: flex;
+  /* align-items: center; */
+  flex-direction: column;
+  padding-bottom: 40px;
+  margin: 20px;
+}
+
+.all-product-image {
+  height: 320px;
+  width: 270px;
+  object-fit: cover;
+}
+
+.all-product-desc {
+  max-width: 270px;
+}
+
+/* .all-button-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+} */
+
+.all-products .all-add-to-cart {
+  background-color: black;
+  color: white;
+  padding: 15px;
+  margin-top: 15px;
+  bottom: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 }

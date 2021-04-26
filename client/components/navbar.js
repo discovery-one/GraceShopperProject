@@ -8,25 +8,56 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
     {/* <h1>Nebula</h1> */}
     <nav>
       {isLoggedIn ? (
-        <div>
+        <div className="navbar">
           {/* The navbar will show these links after you log in */}
-          <Link to='/'>Home</Link>
-          <a href='#' onClick={handleClick}>
-            Logout
-          </a>
-          <Link to='/products'>View Our Sweets</Link>
-          <Link to='/cart/:id'>Cart</Link>
+          <div className="navLogo">
+            <Link to="/">
+              <img className="logo" src={'/images/logo.png'} alt="" />
+            </Link>
+          </div>
+          <nav>
+            <ul className="nav-links">
+              <li>
+                <a href="/products">Shop All Sweets</a>
+              </li>
+              <li>
+                <a href="/" onClick={handleClick}>
+                  Logout
+                </a>
+              </li>
+              <li>
+                <a href="/cart/:id" className="circle">
+                  Cart
+                </a>
+              </li>
+            </ul>
+          </nav>
         </div>
       ) : (
-        <div className='navbar'>
+        <div className="navbar">
           {/* The navbar will show these links before you log in */}
-          <Link to='/'>
-            <img className='logo' src={'/images/logo.png'} alt='' />
-          </Link>
-          <Link to='/products'>Shop All Sweets</Link>
-          <Link to='/login'>Login</Link>
-          <Link to='/signup'>Sign Up</Link>
-          <Link to='/cart/:id'>Cart</Link>
+          <div className="navLogo">
+            <Link to="/">
+              <img className="logo" src={'/images/logo.png'} alt="" />
+            </Link>
+          </div>
+          <nav>
+            <ul className="nav-links">
+              <li>
+                <a href="/products">Shop All Sweets</a>
+              </li>
+              <li>
+                <a href="/login">Login</a>
+              </li>
+              <li>
+                <a href="/signup">Sign Up</a>
+              </li>
+
+              <li>
+                <a href="/cart/:id">Cart</a>
+              </li>
+            </ul>
+          </nav>
         </div>
       )}
     </nav>
