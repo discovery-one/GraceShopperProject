@@ -232,8 +232,17 @@ form div {
   object-fit: cover;
 }
 
+.all-product-name {
+  color: black;
+}
+
 .all-product-desc {
   max-width: 270px;
+  color: rgb(119, 119, 119);
+}
+
+.all-product-price {
+  color: black;
 }
 
 /* .all-button-container {

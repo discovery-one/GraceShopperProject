@@ -21,31 +21,43 @@ class AllProducts extends React.Component {
         <ul className="all-product-view">
           {products.map((product) => {
             return (
-              <div key={product.id}>
-                <Link to={`/products/${product.id}`}>
+              <div key={product.id} className="all-products">
+                <a
+                  href={`/products/${product.id}`}
+                  className="all-product-card"
+                >
                   <div>
-                    <h2>{product.name}</h2>
-                    <img className="product-image" src={product.imageUrl} />
-                    <p>{product.shortDescription}</p>
+                    <img className="all-product-image" src={product.imageUrl} />
+                    <h3 className="all-product-name">{product.name}</h3>
+                    <p className="all-product-desc">
+                      {product.shortDescription}
+                    </p>
                     {product.soldAs === 'bulk' ? (
-                      <div>${product.price / 100} per dozen</div>
+                      <h5 className="all-product-price">
+                        ${product.price / 100} per dozen
+                      </h5>
                     ) : (
-                      <div>${product.price / 100}</div>
+                      <h5 className="all-product-price">
+                        ${product.price / 100}
+                      </h5>
                     )}
                   </div>
-                </Link>
-                <button
-                  type="button"
-                  onClick={() => this.props.deleteProduct(product.id)}
-                >
-                  Delete Product
-                </button>
+                </a>
+                <div className="all-button-container">
+                  <button
+                    type="button"
+                    onClick={() => this.props.deleteProduct(product.id)}
+                    className="all-add-to-cart"
+                  >
+                    Delete Product
+                  </button>
+                </div>
               </div>
             );
           })}
         </ul>
         <div>
-          <h2>Add a New Product</h2>
+          <h3>Add a New Product</h3>
           <CreateProduct />
         </div>
       </div>
