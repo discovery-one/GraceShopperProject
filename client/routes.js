@@ -20,6 +20,7 @@ import Navbar from './components/navbar';
 import AdminProducts from './components/AdminProducts';
 import AdminSingleProduct from './components/AdminSingleProduct';
 import AdminUsers from './components/AdminUsers';
+import AdminHome from './components/AdminHome';
 
 /**
  * COMPONENT
@@ -36,11 +37,8 @@ class Routes extends Component {
         <div>
           {isAdmin ? (
             <main>
-              <div>
-                <Link to="/users/">View All Users</Link>
-              </div>
               <Switch>
-                <Route exact path="/" component={Home} />
+                <Route exact path="/" component={AdminHome} />
                 <Route path="/login" component={Login} />
                 <Route path="/signup" component={Signup} />
                 <Route exact path="/products" component={AdminProducts} />
