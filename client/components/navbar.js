@@ -5,26 +5,28 @@ import { logout } from '../store';
 
 const Navbar = ({ handleClick, isLoggedIn }) => (
   <div>
-    <h1>Nebula</h1>
+    {/* <h1>Nebula</h1> */}
     <nav>
       {isLoggedIn ? (
         <div>
           {/* The navbar will show these links after you log in */}
-          <Link to="/">Home</Link>
-          <a href="#" onClick={handleClick}>
+          <Link to='/'>Home</Link>
+          <a href='#' onClick={handleClick}>
             Logout
           </a>
-          <Link to="/products">View Our Sweets</Link>
-          <Link to="/cart/:id">Cart</Link>
+          <Link to='/products'>View Our Sweets</Link>
+          <Link to='/cart/:id'>Cart</Link>
         </div>
       ) : (
-        <div>
+        <div className='navbar'>
           {/* The navbar will show these links before you log in */}
-          <Link to="/">Home</Link>
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Sign Up</Link>
-          <Link to="/products">View Our Sweets</Link>
-          <Link to="/cart/:id">Cart</Link>
+          <Link to='/'>
+            <img className='logo' src={'/images/logo.png'} alt='' />
+          </Link>
+          <Link to='/products'>Shop All Sweets</Link>
+          <Link to='/login'>Login</Link>
+          <Link to='/signup'>Sign Up</Link>
+          <Link to='/cart/:id'>Cart</Link>
         </div>
       )}
     </nav>

@@ -1,3 +1,9 @@
+* {
+  box-sizing: border-box;
+  font-family: 'IBM Plex Mono', monospace;
+  /* background-color: beige; */
+}
+
 body {
   font-family: sans-serif;
 }
@@ -18,4 +24,161 @@ nav a {
 form div {
   margin: 1em;
   display: inline-block;
+}
+
+/* HOMEPAGE */
+
+/* NAVBAR */
+.logo {
+  width: 100px;
+}
+
+.navbar {
+  align-items: center;
+}
+
+/* HERO AREA */
+
+.banner {
+  width: 100%;
+  height: 70%;
+  top: 25%;
+  position: relative;
+}
+
+.banner div {
+  height: 600px;
+  background-image: url('/header.png');
+}
+
+.hero-text {
+  width: 100%;
+  float: left;
+}
+
+.hero-text h1 {
+  font-size: 42px;
+  width: 640px;
+  position: relative;
+  margin: 80px 0 20px 60px;
+}
+
+.hero-text p {
+  font-size: 16px;
+  width: 640px;
+  position: relative;
+  margin: 40px 0 30px 60px;
+  line-height: 25px;
+}
+
+.main-cta {
+  background-color: black;
+  color: white;
+  padding: 15px;
+  margin: 40px 0 30px 60px;
+}
+
+.floating-words div {
+  background-color: beige;
+  padding: 20px;
+}
+
+.floating-words {
+  font-size: 20px;
+  text-transform: uppercase;
+  animation: animate 20s linear infinite;
+  animation-delay: none;
+  padding: 40px;
+  overflow: hidden;
+  margin-bottom: 0px;
+  /* background-color: beige; */
+}
+@keyframes animate {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* HOW IT WORKS */
+
+.how-it-works {
+  background: #ffe4e4;
+  height: 600px;
+}
+
+.hiw-text {
+  text-align: center;
+  padding-top: 50px;
+}
+
+.home-illustration {
+  height: 150px;
+  width: 150px;
+  /* background-position: center center; */
+  object-fit: contain;
+  /* border-radius: 50%; */
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 30px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.image-block {
+  display: flex;
+  height: 300px;
+  width: 300px;
+  object-fit: contain;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 40px;
+}
+.home-image-block {
+  background: #fff999;
+  height: 350px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+/* TEAM  */
+
+.team-section {
+  height: 600px;
+  background-color: rgb(255, 255, 239);
+}
+
+.team-section h2 {
+  padding-top: 50px;
+  margin-top: 0;
+  text-align: center;
+}
+
+.team-column {
+  float: left;
+  width: 25%;
+  padding: 30px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.team-photo {
+  border-radius: 50%;
+  object-fit: cover;
+  height: 200px;
+  width: 200px;
+  margin: 20px;
+  background: -webkit-linear-gradient(left top, #ff80e4 0%, #49ffed 100%);
+  border-radius: 1000px;
+  padding: 8px;
+}
+
+.linkedin-logo {
+  width: 40px;
 }
