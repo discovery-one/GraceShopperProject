@@ -29,7 +29,7 @@ export class SingleProduct extends React.Component {
         </div>
         <div>
           <h1>Edit Product</h1>
-          {/* <EditProduct /> */}
+          <EditProduct />
         </div>
       </div>
     );
