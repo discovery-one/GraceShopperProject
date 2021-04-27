@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchUsers } from '../store/redux/users';
 import { Link } from 'react-router-dom';
 
-class AllProducts extends React.Component {
+class AdminUsers extends React.Component {
   constructor() {
     super();
   }
@@ -64,4 +64,4 @@ const mapDispatchToProps = (dispatch, { history }) => ({
   loadUsers: () => dispatch(fetchUsers()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AllProducts);
+export default connect(mapStateToProps, mapDispatchToProps)(AdminUsers);

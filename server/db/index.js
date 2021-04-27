@@ -6,16 +6,7 @@ const Sequelize = require('sequelize');
 const User = require('./models/user');
 const Product = require('./models/product');
 const Order = require('./models/order');
-
-const OrdersProducts = db.define('orders_products', {
-  quantity: {
-    type: Sequelize.INTEGER,
-    defaultValue: 1,
-  },
-  priceSnapshot: {
-    type: Sequelize.INTEGER,
-  },
-});
+const OrdersProducts = require('./models/ordersProducts');
 
 //associations could go here!
 

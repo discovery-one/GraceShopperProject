@@ -39,7 +39,7 @@ export class EditProduct extends React.Component {
           <input name="name" onChange={handleChange} value={name} />
           <p>
             <label>Price:</label>
-            <input name="price" onChange={handleChange} value={price} />
+            <input name="price" onSubmit={handleSubmit} value={price * 100} />
           </p>
           <label>Short Description:</label>
           <p>
