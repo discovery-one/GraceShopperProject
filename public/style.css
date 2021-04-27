@@ -115,6 +115,7 @@ small {
   background-color: black;
   color: white;
   padding: 15px;
+  border-radius: 5px;
   margin: 40px 0 30px 60px;
 }
 
@@ -123,7 +124,7 @@ small {
   padding: 20px;
 }
 
-.floating-words {
+/* .floating-words {
   font-size: 20px;
   text-transform: uppercase;
   animation: animate 20s linear infinite;
@@ -140,7 +141,7 @@ small {
   100% {
     transform: translateX(-50%);
   }
-}
+} */
 
 /* HOW IT WORKS */
 
@@ -238,6 +239,7 @@ small {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
+  background-color: #f9eaf9;
 }
 
 .all-products {
@@ -353,4 +355,44 @@ small {
 .admin-table-title {
   float: left;
   width: 33.33%;
+}
+
+/* LOGIN PAGE */
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* flex-grow: 2; */
+  margin: 1em;
+}
+
+.login-cta {
+  background-color: black;
+  color: white;
+  padding: 15px;
+  margin-left: 15px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 5px;
+}
+
+#auth-input {
+  height: 1000px;
+  display: flex;
+  background-color: #f9eaf9;
+  justify-content: center;
+  padding: 30px;
+}
+
+.login-content h3 {
+  margin-left: 25px;
+}
+
+form input {
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 2px 2px 5px #fbc1fa;
+  width: 300px;
 }

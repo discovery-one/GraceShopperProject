@@ -9,39 +9,42 @@ const AuthForm = (props) => {
   const { name, displayName, handleSubmit, error } = props;
 
   return (
-    <div id="auth-input">
-      <form onSubmit={handleSubmit} name={name}>
-        <div>
-          <label htmlFor="email">
-            <small>Email</small>
-          </label>
-          <input name="email" type="text" />
-        </div>
-        <div>
-          <label htmlFor="firstName">
-            <small>First Name</small>
-          </label>
-          <input name="firstName" type="text" />
-        </div>
-        <div>
-          <label htmlFor="lastName">
-            <small>Last Name</small>
-          </label>
-          <input name="lastName" type="text" />
-        </div>
-        <div>
+    <div className='login-form' id='auth-input'>
+      <div className='login-content'>
+        <h3>Hello, who's this?</h3>
+        <form onSubmit={handleSubmit} name={name}>
           <div>
-            <label htmlFor="password">
+            <label htmlFor='email'>
+              <small>Email</small>
+            </label>
+            <input name='email' type='text' />
+          </div>
+          <div>
+            <label htmlFor='firstName'>
+              <small>First Name</small>
+            </label>
+            <input name='firstName' type='text' />
+          </div>
+          <div>
+            <label htmlFor='lastName'>
+              <small>Last Name</small>
+            </label>
+            <input name='lastName' type='text' />
+          </div>
+          <div>
+            <label htmlFor='password'>
               <small>Password</small>
             </label>
-            <input name="password" type="password" />
+            <input name='password' type='password' />
           </div>
-          <button className="main-cta" type="submit">
-            {displayName}
-          </button>
-        </div>
-        {error && error.response && <div> {error.response.data} </div>}
-      </form>
+          <div>
+            <button className='login-cta' type='submit'>
+              {displayName}
+            </button>
+          </div>
+          {error && error.response && <div> {error.response.data} </div>}
+        </form>
+      </div>
     </div>
   );
 };
