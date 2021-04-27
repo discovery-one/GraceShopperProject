@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
+const User = require('./db/models/user');
 const app = express();
 
 // logging middleware

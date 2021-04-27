@@ -2,6 +2,8 @@ import axios from 'axios';
 
 const initialState = [];
 
+const TOKEN = 'token';
+
 //action types
 const SET_USERS = 'SET_USERS';
 
@@ -14,8 +16,14 @@ export const setUsers = (users) => ({
 //thunk creators
 export const fetchUsers = () => {
   return async (dispatch) => {
+    const token = window.localStorage.getItem(TOKEN);
+
     try {
-      const { data } = await axios.get('/api/users');
+      const { data } = await axios.get('/api/users', {
+        headers: {
+          authorization: token,
+        },
+      });
       dispatch(setUsers(data));
     } catch (err) {
       console.log("something's wrong w/ setUsers! --->", err);
