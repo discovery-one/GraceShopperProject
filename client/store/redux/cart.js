@@ -1,103 +1,95 @@
-import axios from 'axios';
+import axios from "axios";
 
 const initialState = [];
 
-//action types:
-const GET_CART = 'GET_CART';
-const ADD_TO_CART = 'ADD_TO_CART';
-const DELETE_ITEM = 'DELETE_ITEM';
-const INCREMENT_ITEM = 'INCREMENT_ITEM';
+export const EMPTY_CART = "EMPTY_CART";
+export const GET_CART = "GET_CART";
+export const ADD_TO_CART = "ADD_TO_CART";
+export const DELETE_CART_ITEM = "DELETE_CART_ITEM";
+export const CHECKOUT = "CHECKOUT";
 
-//action creator:
-export const addToCart = (product) => ({
-  type: ADD_TO_CART,
-  product,
-});
+export const addToCart = (cartItem) => {
+  return {
+    type: ADD_TO_CART,
+    cartItem,
+  };
+};
 
-export const getCart = (order) => ({
-  type: GET_CART,
-  order,
-});
+export const emptyCart = () => {
+  return {
+    type: EMPTY_CART,
+    //we might need something here
+  };
+};
 
-export const deleteItem = (product) => ({
-  type: DELETE_ITEM,
-  product,
-});
+export const getCart = () => {
+  return {
+    type: GET_CART,
+  };
+};
 
-export const incrementItem = (product) => ({
-  type: INCREMENT_ITEM,
-  product,
-});
+export const deleteCart = (product) => {
+  return {
+    type: DELETE_CART_ITEM,
+    product,
+  };
+};
 
-//thunk creators:
-export const addToCartThunk = (orderId, productId, product, history) => {
+export const checkoutCart = (cart, userId) => {
+  return {
+    type: CHECKOUT,
+    checkoutData: { cart, userId },
+  };
+};
+
+export const checkoutCartThunk = (cart, userId) => {
   return async (dispatch) => {
     try {
-      const { data: added } = await axios.put(
-        `/api/cart/${orderId}/products/${productId}`,
-        product
+      const response = await axios.put(`/api/cart/${userId}`, cart);
+      const data = response.data;
+      //      console.log(data);
+      dispatch(checkoutCart(cart, userId));
+    } catch (e) {
+      console.log(e);
+    }
+  };
+};
+
+export const editCartThunk = (cartItem, orderId) => {
+  let productId = cartItem.product.id;
+  return async (dispatch) => {
+    try {
+      const response = await axios.put(
+        `api/cart/${productId}/${orderId}`,
+        cartItem
       );
-      dispatch(addToCart(added));
+      const data = response.data;
+      dispatch(addToCart(cartItem));
     } catch (error) {
-      console.log("something's wrong w/ addToCartThunk! --->", err);
+      console.log(error);
     }
   };
 };
 
-export const getCartThunk = (orderId) => {
-  return async (dispatch) => {
-    try {
-      const { data } = await axios.get(`/api/cart/${orderId}`);
-      dispatch(getCart(data));
-    } catch (error) {
-      console.log("something's wrong w/ getCartThunk! --->", err);
-    }
-  };
-};
-
-export const deleteItemThunk = (orderId, productId, product, history) => {
-  return async (dispatch) => {
-    try {
-      const { data: deleted } = await axios.delete(
-        `/api/cart/${orderId}/products/${productId}`,
-        product
-      );
-      dispatch(deleteItem(deleted));
-      history.push(`/cart/${orderId}`);
-    } catch (err) {
-      console.log("something's wrong w/ deleteItemThunk! --->", err);
-    }
-  };
-};
-
-export const incrementItemThunk = (orderId, productId, product, history) => {
-  return async (dispatch) => {
-    try {
-      const { data: incrementedItem } = await axios.put(
-        `/api/cart/${orderId}/products/${productId}`,
-        product
-      );
-      console.log('increThunk-', incrementedItem);
-      dispatch(incrementItem(incrementedItem));
-      // history.push(`/cart/${orderId}`);
-    } catch (err) {
-      console.log("something's wrong w/ IncrementItemThunk! --->", err);
-    }
-  };
-};
-
-export default function cartReducer(state = initialState, action) {
+export default function cartReducer(cart = initialState, action) {
+  let currentCart;
   switch (action.type) {
     case GET_CART:
-      return action.order;
+      return cart;
+    case EMPTY_CART:
+      return [];
     case ADD_TO_CART:
-      return action.product;
-    case DELETE_ITEM:
-      return action.product;
-    case INCREMENT_ITEM:
-      console.log('increment->', action);
-    // return action.product.quantity++;
+      currentCart = cart.filter(
+        (item) => item.product.id != action.cartItem.product.id
+      );
+      currentCart.push(action.cartItem);
+      return currentCart;
+    case DELETE_CART_ITEM:
+      currentCart = cart.filter((item) => item.product.id != action.product.id);
+      return currentCart;
+    case CHECKOUT:
+      return cart;
     default:
-      return state;
+      return cart;
   }
 }
