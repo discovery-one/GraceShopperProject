@@ -124,7 +124,7 @@ small {
   padding: 20px;
 }
 
-/* .floating-words {
+.floating-words {
   font-size: 20px;
   text-transform: uppercase;
   animation: animate 20s linear infinite;
@@ -141,7 +141,7 @@ small {
   100% {
     transform: translateX(-50%);
   }
-} */
+}
 
 /* HOW IT WORKS */
 
