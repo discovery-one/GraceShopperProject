@@ -32,19 +32,17 @@ class AllProducts extends React.Component {
                 >
                   <div>
                     <img className="all-product-image" src={product.imageUrl} />
-                    <h4 className="all-product-name">{product.name}</h4>
+                    <h3 className="all-product-name">{product.name}</h3>
 
-                    <p className="all-product-desc">
-                      {product.shortDescription}
-                    </p>
+                    <p className="short-desc">{product.shortDescription}</p>
                     {product.soldAs === 'bulk' ? (
-                      <div className="all-product-price">
+                      <h5 className="all-product-price">
                         ${product.price / 100} per dozen
-                      </div>
+                      </h5>
                     ) : (
-                      <div className="all-product-price">
+                      <h5 className="all-product-price">
                         ${product.price / 100}
-                      </div>
+                      </h5>
                     )}
                   </div>
                 </a>

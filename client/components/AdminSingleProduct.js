@@ -14,21 +14,21 @@ export class SingleProduct extends React.Component {
     const price = this.props.product.price / 100;
     return (
       <div>
-        <div>
-          <h2>{product.name}</h2>
-          <br></br>
-          <div>
-            <img src={product.imageUrl} />
+        <div className="single-product-card">
+          <div className="admin-product-container">
+            <img src={product.imageUrl} className="single-product-image" />
           </div>
-          <div>{product.longDescription}</div>
-          {product.soldAs === 'bulk' ? (
-            <div>${price} per dozen</div>
-          ) : (
-            <div>${price}</div>
-          )}
+          <div className="admin-product-container">
+            <h2 className="single-product-name">{product.name}</h2>
+            {product.soldAs === 'bulk' ? (
+              <div className="single-product-price">${price} per dozen</div>
+            ) : (
+              <div className="single-product-price">${price}</div>
+            )}
+            <p className="long-desc">{product.longDescription}</p>
+          </div>
         </div>
         <div>
-          <h1>Edit Product</h1>
           <EditProduct />
         </div>
       </div>

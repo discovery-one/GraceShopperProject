@@ -32,32 +32,43 @@ export class EditProduct extends React.Component {
     const { name, price, shortDescription, longDescription } = this.state;
     const { handleSubmit, handleChange } = this;
     return (
-      <form id="editProduct" onSubmit={handleSubmit}>
-        <label>Product Name:</label>
-        <input name="name" onChange={handleChange} value={name} />
-        <p>
-          <label>Price:</label>
-          <input name="price" onChange={handleChange} value={price} />
-        </p>
-        <label>Short Description:</label>
-        <p>
-          <textarea
-            name="shortDescription"
-            onChange={handleChange}
-            value={shortDescription}
-          />
-        </p>
-        <label>Long Description:</label>
-        <p>
-          <textarea
-            name="longDescription"
-            onChange={handleChange}
-            value={longDescription}
-          />
-        </p>
-        <button type="submit">Submit</button>
-        <Link to="/products">Cancel</Link>
-      </form>
+      <div className="admin-product-container">
+        <h3>Edit Product</h3>
+        <form id="editProduct" onSubmit={handleSubmit}>
+          <label>Product Name:</label>
+          <input name="name" onChange={handleChange} value={name} />
+          <p>
+            <label>Price:</label>
+            <input name="price" onChange={handleChange} value={price} />
+          </p>
+          <label>Short Description:</label>
+          <p>
+            <textarea
+              name="shortDescription"
+              onChange={handleChange}
+              value={shortDescription}
+            />
+          </p>
+          <label>Long Description:</label>
+          <p>
+            <textarea
+              name="longDescription"
+              onChange={handleChange}
+              value={longDescription}
+            />
+          </p>
+          <div className="admin-button-container">
+            <div className="edit-cta">
+              <button type="submit" className="single-add-to-cart">
+                Submit
+              </button>
+            </div>
+            <div className="edit-cta">
+              <a href="/products">Cancel</a>
+            </div>
+          </div>
+        </form>
+      </div>
     );
   }
 }
