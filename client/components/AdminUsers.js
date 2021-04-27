@@ -16,25 +16,41 @@ class AllProducts extends React.Component {
     const users = this.props.users;
     return (
       <div>
-        <h1>All Users</h1>
-        <ul className="all-user-view">
-          {users.map((user) => {
-            return (
-              <div key={user.id}>
-                <div>
-                  <span>
-                    <h2>
-                      {user.firstName} {user.lastName}
-                    </h2>
-                  </span>
-                  <span>
-                    <h2>{user.email}</h2>
-                  </span>
+        <div className="admin-table-container">
+          <h2>All Users</h2>
+        </div>
+        <div className="admin-table-container">
+          <div className="admin-table-title">
+            <h3>First Name</h3>
+          </div>
+          <div className="admin-table-title">
+            <h3>Last Name</h3>
+          </div>
+          <div className="admin-table-title">
+            <h3>Email</h3>
+          </div>
+        </div>
+        <div>
+          <ul className="all-user-view">
+            {users.map((user) => {
+              return (
+                <div key={user.id}>
+                  <div className="admin-user-values">
+                    <div className="admin-table-title">
+                      <p>{user.firstName}</p>
+                    </div>
+                    <div className="admin-table-title">
+                      <p>{user.lastName}</p>
+                    </div>
+                    <div className="admin-table-title">
+                      <p>{user.email}</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
-        </ul>
+              );
+            })}
+          </ul>
+        </div>
       </div>
     );
   }

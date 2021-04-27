@@ -12,18 +12,29 @@ export class SingleProduct extends React.Component {
     const product = this.props.product;
     const price = this.props.product.price / 100;
     return (
-      <div>
-        <h2>{product.name}</h2>
-        <br></br>
-        <div>
-          <img src={product.imageUrl} />
+      <div className="single-product-card">
+        <div className="single-product-container">
+          <img src={product.imageUrl} className="single-product-image" />
         </div>
-        <div>{product.longDescription}</div>
-        {product.soldAs === 'bulk' ? (
-          <div>${price} per dozen</div>
-        ) : (
-          <div>${price}</div>
-        )}
+        <div className="single-product-container">
+          <h2 className="single-product-name">{product.name}</h2>
+
+          {product.soldAs === 'bulk' ? (
+            <div className="single-product-price">${price} per dozen</div>
+          ) : (
+            <div className="single-product-price">${price}</div>
+          )}
+          <p className="long-desc">{product.longDescription}</p>
+          <div className="single-button-container">
+            <button
+              type="button"
+              onClick={() => this.addToCart(product.id)}
+              className="single-add-to-cart"
+            >
+              Add To Cart
+            </button>
+          </div>
+        </div>
       </div>
     );
   }
