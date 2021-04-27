@@ -22,11 +22,17 @@ nav a {
 }
 
 form div {
-  margin: 1em;
   display: inline-block;
 }
 
-/* HOMEPAGE */
+/* AUTH FORM */
+#auth-input form div input {
+  margin: 1em;
+}
+
+small {
+  margin: 1em;
+}
 
 /* NAVBAR */
 .logo {
@@ -64,6 +70,7 @@ form div {
   height: 40px;
 } */
 
+/* HOMEPAGE */
 /* HERO AREA */
 
 .banner {
@@ -76,6 +83,12 @@ form div {
 .banner div {
   height: 600px;
   background-image: url('/header.png');
+}
+
+.admin-banner div {
+  height: 220px;
+  background-color: black;
+  color: white;
 }
 
 .hero-text {
@@ -134,6 +147,15 @@ form div {
 .how-it-works {
   background: #ffe4e4;
   height: 600px;
+}
+
+.admin-how-it-works {
+  background: #ffe4e4;
+  height: 520px;
+}
+
+.admin-links {
+  color: black;
 }
 
 .hiw-text {
@@ -236,7 +258,7 @@ form div {
   color: black;
 }
 
-.all-product-desc {
+.short-desc {
   max-width: 270px;
   color: rgb(119, 119, 119);
 }
@@ -251,7 +273,7 @@ form div {
   align-items: flex-end;
 } */
 
-.all-products .all-add-to-cart {
+.all-add-to-cart {
   background-color: black;
   color: white;
   padding: 15px;
@@ -260,4 +282,75 @@ form div {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+}
+
+/* SINGLE PRODUCTS PAGE */
+
+.single-product-container {
+  float: left;
+  width: 50%;
+  margin-top: 40px;
+}
+
+.single-product-name {
+  color: black;
+}
+
+.single-product-image {
+  height: 520px;
+  width: 470px;
+  object-fit: cover;
+  margin-left: 70px;
+}
+
+.long-desc {
+  color: rgb(119, 119, 119);
+  max-width: 500px;
+}
+
+.single-product-price {
+  color: black;
+}
+
+.single-add-to-cart {
+  background-color: black;
+  color: white;
+  padding: 15px;
+  margin-top: 30px;
+  bottom: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+/* ADMIN SINGLE PRODUCT */
+
+.admin-product-container {
+  float: left;
+  width: 50%;
+  margin-top: 40px;
+}
+
+.admin-button-container {
+  float: left;
+  width: 50%;
+}
+
+.admin-create-product-container {
+  float: left;
+  width: 50%;
+  margin-top: 40px;
+  margin-left: 80px;
+}
+
+/* ADMIN USERS VIEW */
+
+.admin-table-container {
+  margin-left: 40px;
+  margin-top: 40px;
+}
+
+.admin-table-title {
+  float: left;
+  width: 33.33%;
 }

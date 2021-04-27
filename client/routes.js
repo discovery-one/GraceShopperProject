@@ -21,6 +21,7 @@ import AdminProducts from './components/AdminProducts';
 import AdminSingleProduct from './components/AdminSingleProduct';
 import AdminUsers from './components/AdminUsers';
 import AdminHome from './components/AdminHome';
+import CreateProduct from './components/CreateProduct';
 
 /**
  * COMPONENT
@@ -45,6 +46,7 @@ class Routes extends Component {
                 <Route path="/products/:id" component={AdminSingleProduct} />
                 <Route path="/cart/:id" component={Cart} />
                 <Route path="/users/" component={AdminUsers} />
+                <Route path="/create-product" component={CreateProduct} />
               </Switch>
             </main>
           ) : (
