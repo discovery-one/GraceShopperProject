@@ -22,6 +22,8 @@ import AdminSingleProduct from './components/AdminSingleProduct';
 import AdminUsers from './components/AdminUsers';
 import AdminHome from './components/AdminHome';
 import CreateProduct from './components/CreateProduct';
+import CheckoutForm from './components/CheckoutForm';
+import ConfirmationPage from './components/ConfirmationPage';
 
 /**
  * COMPONENT
@@ -47,6 +49,8 @@ class Routes extends Component {
                 <Route path="/cart/:id" component={Cart} />
                 <Route path="/users/" component={AdminUsers} />
                 <Route path="/create-product" component={CreateProduct} />
+                <Route path="/checkout-form" component={CheckoutForm} />
+                <Route path="/confirmation-page" component={ConfirmationPage} />
               </Switch>
             </main>
           ) : (
@@ -58,6 +62,8 @@ class Routes extends Component {
                 <Route exact path="/products" component={AllProducts} />
                 <Route path="/products/:id" component={SingleProduct} />
                 <Route path="/cart/:id" component={Cart} />
+                <Route path="/checkout-form" component={CheckoutForm} />
+                <Route path="/confirmation-page" component={ConfirmationPage} />
               </Switch>
             </main>
           )}
