@@ -396,3 +396,48 @@ form input {
   box-shadow: 2px 2px 5px #fbc1fa;
   width: 300px;
 }
+
+/* CHECKOUT PAGE */
+.checkout-cta {
+  background-color: black;
+  color: white;
+  padding: 15px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 5px;
+}
+
+.expiration-year {
+  margin-left: 10px;
+  width: 176px;
+}
+
+.select-expiration {
+  padding: 10px;
+  border-radius: 5px;
+  border-color: #ff80e4;
+}
+
+#checkout-input {
+  height: 1000px;
+  display: flex;
+  background-color: #f9eaf9;
+  justify-content: center;
+  padding: 30px;
+}
+
+.input-title input {
+  margin-bottom: 15px;
+}
+
+.input-title label {
+  margin-bottom: 10px;
+}
+
+.input-title label small {
+  margin: 0px;
+}
+
+.checkout-content h3 {
+  margin-left: 15px;
+}
