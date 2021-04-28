@@ -1,12 +1,12 @@
-import axios from "axios";
+import axios from 'axios';
 
 const initialState = [];
 
-export const EMPTY_CART = "EMPTY_CART";
-export const GET_CART = "GET_CART";
-export const ADD_TO_CART = "ADD_TO_CART";
-export const DELETE_CART_ITEM = "DELETE_CART_ITEM";
-export const CHECKOUT = "CHECKOUT";
+export const EMPTY_CART = 'EMPTY_CART';
+export const GET_CART = 'GET_CART';
+export const ADD_TO_CART = 'ADD_TO_CART';
+export const DELETE_CART_ITEM = 'DELETE_CART_ITEM';
+export const CHECKOUT = 'CHECKOUT';
 
 export const addToCart = (cartItem) => {
   return {
@@ -47,7 +47,6 @@ export const checkoutCartThunk = (cart, userId) => {
     try {
       const response = await axios.put(`/api/cart/${userId}`, cart);
       const data = response.data;
-      //      console.log(data);
       dispatch(checkoutCart(cart));
     } catch (e) {
       console.log(e);
