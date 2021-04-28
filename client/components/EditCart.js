@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { addToCart, deleteCart, editCartThunk } from "../store/redux/cart.js";
+import { addToCart, deleteCart } from "../store/redux/cart.js";
 
 class EditCart extends React.Component {
   constructor(props) {
@@ -85,11 +85,7 @@ class EditCart extends React.Component {
           type="button"
           id="checkout"
           onClick={() =>
-            this.props
-              .checkout
-              /*this.state.thisCart,
-              this.state.thisQuantity*/
-              ()
+            this.props.checkout(this.state.thisCart, this.state.thisQuantity)
           }
         >
           Got To Checkout
@@ -161,7 +157,7 @@ class EditCart extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  addToCart: (cartItem) => dispatch(editCartThunk(cartItem)),
+  addToCart: (cartItem) => dispatch(addToCart(cartItem)),
   deleteCart: (product) => dispatch(deleteCart(product)),
 });
 

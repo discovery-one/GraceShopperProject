@@ -1,6 +1,6 @@
-import React, { Component, Fragment } from 'react';
-import { connect } from 'react-redux';
-import history from './history';
+import React, { Component, Fragment } from "react";
+import { connect } from "react-redux";
+import history from "./history";
 import {
   withRouter,
   Route,
@@ -8,8 +8,8 @@ import {
   Redirect,
   Router,
   Link,
-} from 'react-router-dom';
-import { Login, Signup } from './components/AuthForm';
+} from "react-router-dom";
+import { Login, Signup } from "./components/AuthForm";
 //import AuthForm from "./components/Authform.js";
 import Home from './components/home';
 import SingleProduct from './components/SingleProduct';
@@ -24,6 +24,7 @@ import AdminHome from './components/AdminHome';
 import CreateProduct from './components/CreateProduct';
 import CheckoutForm from './components/CheckoutForm';
 import ConfirmationPage from './components/ConfirmationPage';
+
 
 /**
  * COMPONENT
