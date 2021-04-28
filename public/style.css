@@ -235,6 +235,10 @@ small {
 
 /*ALL PRODUCTS PAGE*/
 
+.all-products-page {
+  background-color: #f9eaf9;
+}
+
 .all-product-view {
   display: flex;
   flex-flow: row wrap;
@@ -244,10 +248,10 @@ small {
 
 .all-products {
   display: flex;
-  /* align-items: center; */
   flex-direction: column;
   padding-bottom: 40px;
   margin: 20px;
+  justify-content: space-between;
 }
 
 .all-product-image {
@@ -284,6 +288,8 @@ small {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+  border: none;
+  border-radius: 5px;
 }
 
 /* SINGLE PRODUCTS PAGE */
@@ -323,6 +329,8 @@ small {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+  border: none;
+  border-radius: 5px;
 }
 
 /* ADMIN SINGLE PRODUCT */
@@ -397,6 +405,24 @@ form input {
   width: 300px;
 }
 
+
+/* CART */
+
+.cart-product-image {
+  height: 300px;
+  width: 200px;
+  object-fit: cover;
+  margin-left: 70px;
+}
+
+.cart-cta {
+  background-color: black;
+  color: white;
+  padding: 15px;
+  margin-right: 5px;
+  /* margin-top: 20px; */
+}
+
 /* CHECKOUT PAGE */
 .checkout-cta {
   background-color: black;
@@ -405,6 +431,11 @@ form input {
   margin-top: 20px;
   border: none;
   border-radius: 5px;
+}
+
+
+.cart-short-desc {
+  max-width: 20pxpx;
 }
 
 .expiration-year {

@@ -1,7 +1,9 @@
+
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { addToCart, deleteCart } from "../store/redux/cart.js";
+
 
 class EditCart extends React.Component {
   constructor(props) {
@@ -82,8 +84,8 @@ class EditCart extends React.Component {
     const checkOut = (
       <div>
         <button
-          type="button"
-          id="checkout"
+          type='button'
+          id='checkout'
           onClick={() =>
             this.props.checkout(this.state.thisCart, this.state.thisQuantity)
           }
@@ -101,47 +103,57 @@ class EditCart extends React.Component {
           {products !== undefined && products.length > 0 ? (
             <div>
               {checkOut}
-              <ul className="all-product-view">
+              <ul className='all-product-view'>
                 {products.map((product, index) => {
                   return (
                     <div key={product.id}>
-                      <Link to={`/products/${product.id}`}>
-                        <div>
+                      <div>
+                        <div className='single-product-container'>
+                          <Link to={`/products/${product.id}`}>
+                            <img
+                              className='cart-product-image'
+                              src={product.imageUrl}
+                            />
+                          </Link>
+                        </div>
+                        <div className='single-product-container'>
                           <h2>{product.name}</h2>
-                          <img
-                            className="product-image"
-                            src={product.imageUrl}
-                          />
-                          <p>{product.shortDescription}</p>
+                          <p className='cart-short-desc'>
+                            {product.shortDescription}
+                          </p>
                           <h6>${product.price / 100}</h6>
                           <h6
                             key={
-                              product.id + "-" + this.state.thisQuantity[index]
+                              product.id + '-' + this.state.thisQuantity[index]
                             }
                           >
                             Quantity: {this.state.thisQuantity[index]}
                           </h6>
                         </div>
-                      </Link>
-                      <button
-                        type="button"
-                        onClick={() => this.incrementHandler(product.id)}
-                      >
-                        {" "}
-                        +{" "}
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => this.decrementHandler(product.id)}
-                      >
-                        -
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => this.removeHandler(product.id)}
-                      >
-                        Remove Item from Cart
-                      </button>
+
+                        <button
+                          className='cart-cta'
+                          type='button'
+                          onClick={() => this.incrementHandler(product.id)}
+                        >
+                          {' '}
+                          +{' '}
+                        </button>
+                        <button
+                          className='cart-cta'
+                          type='button'
+                          onClick={() => this.decrementHandler(product.id)}
+                        >
+                          -
+                        </button>
+                        <button
+                          className='cart-cta'
+                          type='button'
+                          onClick={() => this.removeHandler(product.id)}
+                        >
+                          Remove Item
+                        </button>
+                      </div>
                     </div>
                   );
                 })}
