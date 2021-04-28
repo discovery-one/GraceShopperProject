@@ -441,3 +441,33 @@ form input {
 .checkout-content h3 {
   margin-left: 15px;
 }
+
+/* CONFIRMATION PAGE */
+.confirmation-content {
+  display: flex;
+  height: 1000px;
+  background-color: #f9eaf9;
+  flex-direction: column;
+  align-items: center;
+}
+
+.confirmation-illustration {
+  margin-top: 40px;
+  height: 200px;
+  width: 200px;
+  object-fit: contain;
+  animation: rotation 4s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.confirmation-content h1 {
+  margin-top: 80px;
+}

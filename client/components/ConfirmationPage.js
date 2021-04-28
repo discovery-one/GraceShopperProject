@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 function rand(min, max) {
   let randomNum = Math.random() * (max - min) + min;
@@ -8,9 +7,15 @@ function rand(min, max) {
 
 const ConfirmationPage = (props) => {
   return (
-    <div>
+    <div className="confirmation-content">
       <h1>Thank you for your order!</h1>
-      <h3>Your confirmation is #{rand(100000, 120000)}</h3>
+      <h3>Your confirmation number is #{rand(100000, 120000)}</h3>
+      <img
+        className="confirmation-illustration"
+        src={'/images/donut.png'}
+        width="100%"
+        alt="donut"
+      />
     </div>
   );
 };
