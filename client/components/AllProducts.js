@@ -1,20 +1,20 @@
-import React from "react";
-import { connect } from "react-redux";
-import { fetchProducts } from "../store/redux/products";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { connect } from 'react-redux';
+import { fetchProducts } from '../store/redux/products';
+import { Link } from 'react-router-dom';
 import {
   getCart,
   addToCart,
   emptyCart,
   checkoutCartThunk,
-} from "../store/redux/cart";
-import EditCart from "./EditCart.js";
+} from '../store/redux/cart';
+import EditCart from './EditCart.js';
 
 class AllProducts extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      orderStatus: "products",
+      orderStatus: 'products',
     };
     this.addToMyCart = this.addToMyCart.bind(this);
     this.editCart = this.editCart.bind(this);
@@ -35,7 +35,7 @@ class AllProducts extends React.Component {
       };
       this.props.addToCart(newObj, 1);
     }
-    this.setState({ orderStatus: "products" });
+    this.setState({ orderStatus: 'products' });
   }
 
   addToMyCart(product) {
@@ -53,54 +53,54 @@ class AllProducts extends React.Component {
   }
 */
   editCart() {
-    this.setState({ orderStatus: "cart" });
+    this.setState({ orderStatus: 'cart' });
   }
   checkoutCartHandler() {
     this.props.checkoutCart(this.props.cart, 2);
-    this.setState({ orderStatus: "products" });
+    this.setState({ orderStatus: 'products' });
     this.props.emptyCart();
   }
   render() {
     const products = this.props.products;
     console.log(products);
-    if (this.state.orderStatus === "products") {
+    if (this.state.orderStatus === 'products') {
       return (
-        <div>
+        <div className='all-products-page'>
           <h1>Shop All Galaxy Sweets</h1>
-          <button type="button" onClick={() => this.editCart()}>
+          <button type='button' onClick={() => this.editCart()}>
             Visit Cart
           </button>
-          <ul className="all-product-view">
+          <ul className='all-product-view'>
             {products.map((product) => {
               return (
-                <div key={product.id} className="all-products">
+                <div key={product.id} className='all-products'>
                   <a
                     href={`/products/${product.id}`}
-                    className="all-product-card"
+                    className='all-product-card'
                   >
                     <div>
                       <img
-                        className="all-product-image"
+                        className='all-product-image'
                         src={product.imageUrl}
                       />
-                      <h3 className="all-product-name">{product.name}</h3>
-                      <p className="short-desc">{product.shortDescription}</p>
-                      {product.soldAs === "bulk" ? (
-                        <h5 className="all-product-price">
+                      <h3 className='all-product-name'>{product.name}</h3>
+                      <p className='short-desc'>{product.shortDescription}</p>
+                      {product.soldAs === 'bulk' ? (
+                        <h5 className='all-product-price'>
                           ${product.price / 100} per dozen
                         </h5>
                       ) : (
-                        <h5 className="all-product-price">
+                        <h5 className='all-product-price'>
                           ${product.price / 100}
                         </h5>
                       )}
                     </div>
                   </a>
-                  <div className="all-button-container">
+                  <div className='all-button-container'>
                     <button
-                      type="button"
+                      type='button'
                       onClick={() => this.addToMyCart(product)}
-                      className="all-add-to-cart"
+                      className='all-add-to-cart'
                     >
                       Add To Cart
                     </button>
@@ -112,7 +112,7 @@ class AllProducts extends React.Component {
         </div>
       );
     } else {
-      console.log("Cart rendering.");
+      console.log('Cart rendering.');
       return (
         <div>
           <EditCart
