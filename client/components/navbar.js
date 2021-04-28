@@ -3,36 +3,61 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logout } from '../store';
 
-const Navbar = ({ handleClick, isLoggedIn }) => (
+const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => (
   <div>
-    {/* <h1>Nebula</h1> */}
     <nav>
       {isLoggedIn ? (
-        <div className="navbar">
-          {/* The navbar will show these links after you log in */}
-          <div className="navLogo">
-            <Link to="/">
-              <img className="logo" src={'/images/logo.png'} alt="" />
-            </Link>
+        isAdmin ? (
+          <div className="navbar">
+            {/* The navbar will show these links after you log in */}
+            <div className="navLogo">
+              <Link to="/">
+                <img className="logo" src={'/images/logo.png'} alt="" />
+              </Link>
+            </div>
+            <nav>
+              <ul className="nav-links">
+                <li>
+                  <a href="/products">View Products</a>
+                </li>
+                <li>
+                  <a href="/users">View Users</a>
+                </li>
+                <li>
+                  <a href="/" onClick={handleClick}>
+                    Logout
+                  </a>
+                </li>
+              </ul>
+            </nav>
           </div>
-          <nav>
-            <ul className="nav-links">
-              <li>
-                <a href="/products">Shop All Sweets</a>
-              </li>
-              <li>
-                <a href="/" onClick={handleClick}>
-                  Logout
-                </a>
-              </li>
-              <li>
-                <a href="/cart/:id" className="circle">
-                  Cart
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
+        ) : (
+          <div className="navbar">
+            {/* The navbar will show these links after you log in */}
+            <div className="navLogo">
+              <Link to="/">
+                <img className="logo" src={'/images/logo.png'} alt="" />
+              </Link>
+            </div>
+            <nav>
+              <ul className="nav-links">
+                <li>
+                  <a href="/products">Shop All Sweets</a>
+                </li>
+                <li>
+                  <a href="/" onClick={handleClick}>
+                    Logout
+                  </a>
+                </li>
+                <li>
+                  <a href="/cart/:id" className="circle">
+                    Cart
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        )
       ) : (
         <div className="navbar">
           {/* The navbar will show these links before you log in */}
@@ -70,6 +95,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
 const mapState = (state) => {
   return {
     isLoggedIn: !!state.auth.id,
+    isAdmin: !!state.auth.admin,
   };
 };
 
