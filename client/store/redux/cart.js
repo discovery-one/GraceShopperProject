@@ -18,7 +18,6 @@ export const addToCart = (cartItem) => {
 export const emptyCart = () => {
   return {
     type: EMPTY_CART,
-    //we might need something here
   };
 };
 
@@ -53,24 +52,6 @@ export const checkoutCartThunk = (cart, userId) => {
     }
   };
 };
-
-/*
-export const editCartThunk = (cartItem, orderId) => {
-  let productId = cartItem.product.id;
-  return async (dispatch) => {
-    try {
-      const response = await axios.put(
-        `api/cart/${productId}/${orderId}`,
-        cartItem
-      );
-      const data = response.data;
-      dispatch(addToCart(cartItem));
-    } catch (error) {
-      console.log(error);
-    }
-  };
-};
-*/
 
 export default function cartReducer(cart = initialState, action) {
   let currentCart;

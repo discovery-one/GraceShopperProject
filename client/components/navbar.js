@@ -9,7 +9,6 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin, userId }) => (
       {isLoggedIn ? (
         isAdmin ? (
           <div className="navbar">
-            {/* The navbar will show these links after you log in */}
             <div className="navLogo">
               <Link to="/">
                 <img className="logo" src={'/images/logo.png'} alt="" />
@@ -33,7 +32,6 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin, userId }) => (
           </div>
         ) : (
           <div className="navbar">
-            {/* The navbar will show these links after you log in */}
             <div className="navLogo">
               <Link to="/">
                 <img className="logo" src={'/images/logo.png'} alt="" />
@@ -60,7 +58,6 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin, userId }) => (
         )
       ) : (
         <div className="navbar">
-          {/* The navbar will show these links before you log in */}
           <div className="navLogo">
             <Link to="/">
               <img className="logo" src={'/images/logo.png'} alt="" />

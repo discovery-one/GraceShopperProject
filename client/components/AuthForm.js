@@ -9,36 +9,36 @@ const AuthForm = (props) => {
   const { name, displayName, handleSubmit, error } = props;
 
   return (
-    <div className='login-form' id='auth-input'>
-      <div className='login-content'>
+    <div className="login-form" id="auth-input">
+      <div className="login-content">
         <h3>Hello, who's this?</h3>
         <form onSubmit={handleSubmit} name={name}>
           <div>
-            <label htmlFor='email'>
+            <label htmlFor="email">
               <small>Email</small>
             </label>
-            <input name='email' type='text' />
+            <input name="email" type="text" />
           </div>
           <div>
-            <label htmlFor='firstName'>
+            <label htmlFor="firstName">
               <small>First Name</small>
             </label>
-            <input name='firstName' type='text' />
+            <input name="firstName" type="text" />
           </div>
           <div>
-            <label htmlFor='lastName'>
+            <label htmlFor="lastName">
               <small>Last Name</small>
             </label>
-            <input name='lastName' type='text' />
+            <input name="lastName" type="text" />
           </div>
           <div>
-            <label htmlFor='password'>
+            <label htmlFor="password">
               <small>Password</small>
             </label>
-            <input name='password' type='password' />
+            <input name="password" type="password" />
           </div>
           <div>
-            <button className='login-cta' type='submit'>
+            <button className="login-cta" type="submit">
               {displayName}
             </button>
           </div>
@@ -49,13 +49,6 @@ const AuthForm = (props) => {
   );
 };
 
-/**
- * CONTAINER
- *   Note that we have two different sets of 'mapStateToProps' functions -
- *   one for Login, and one for Signup. However, they share the same 'mapDispatchToProps'
- *   function, and share the same Component. This is a good example of how we
- *   can stay DRY with interfaces that are very similar to each other!
- */
 const mapLogin = (state) => {
   return {
     name: 'login',
