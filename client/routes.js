@@ -1,6 +1,6 @@
-import React, { Component, Fragment } from 'react';
-import { connect } from 'react-redux';
-import history from './history';
+import React, { Component, Fragment } from "react";
+import { connect } from "react-redux";
+import history from "./history";
 import {
   withRouter,
   Route,
@@ -8,13 +8,13 @@ import {
   Redirect,
   Router,
   Link,
-} from 'react-router-dom';
-import { Login, Signup } from './components/AuthForm';
+} from "react-router-dom";
+import { Login, Signup } from "./components/AuthForm";
 //import AuthForm from "./components/Authform.js";
 import Home from './components/home';
 import SingleProduct from './components/SingleProduct';
 import AllProducts from './components/AllProducts';
-import Cart from './components/cart';
+import EditCart from './components/EditCart';
 import { me } from './store';
 import Navbar from './components/navbar';
 import AdminProducts from './components/AdminProducts';
@@ -22,6 +22,9 @@ import AdminSingleProduct from './components/AdminSingleProduct';
 import AdminUsers from './components/AdminUsers';
 import AdminHome from './components/AdminHome';
 import CreateProduct from './components/CreateProduct';
+import CheckoutForm from './components/CheckoutForm';
+import ConfirmationPage from './components/ConfirmationPage';
+
 
 /**
  * COMPONENT
@@ -44,9 +47,11 @@ class Routes extends Component {
                 <Route path="/signup" component={Signup} />
                 <Route exact path="/products" component={AdminProducts} />
                 <Route path="/products/:id" component={AdminSingleProduct} />
-                <Route path="/cart/:id" component={Cart} />
+                <Route path="/cart/:id" component={EditCart} />
                 <Route path="/users/" component={AdminUsers} />
                 <Route path="/create-product" component={CreateProduct} />
+                <Route path="/checkout-form" component={CheckoutForm} />
+                <Route path="/confirmation-page" component={ConfirmationPage} />
               </Switch>
             </main>
           ) : (
@@ -57,7 +62,9 @@ class Routes extends Component {
                 <Route path="/signup" component={Signup} />
                 <Route exact path="/products" component={AllProducts} />
                 <Route path="/products/:id" component={SingleProduct} />
-                <Route path="/cart/:id" component={Cart} />
+                <Route path="/cart/:id" component={EditCart} />
+                <Route path="/checkout-form" component={CheckoutForm} />
+                <Route path="/confirmation-page" component={ConfirmationPage} />
               </Switch>
             </main>
           )}

@@ -56,8 +56,10 @@ class AllProducts extends React.Component {
     this.setState({ orderStatus: 'cart' });
   }
   checkoutCartHandler() {
-    this.props.checkoutCart(this.props.cart, 2);
-    this.setState({ orderStatus: 'products' });
+
+    this.props.checkoutCart(this.props.cart, this.props.auth.id);
+    this.setState({ orderStatus: "products" });
+
     this.props.emptyCart();
   }
   render() {
@@ -127,6 +129,7 @@ class AllProducts extends React.Component {
 const mapStateToProps = (state) => ({
   products: state.products,
   cart: state.cart,
+  auth: state.auth,
 });
 const mapDispatchToProps = (dispatch) => ({
   loadProducts: () => dispatch(fetchProducts()),

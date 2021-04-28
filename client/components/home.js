@@ -5,11 +5,10 @@ import { Link } from 'react-router-dom';
 export const Home = (props) => {
   return (
     <div>
-      {/* <div>
-        <h3>Welcome</h3>
-      </div> */}
-      <div className='banner'>
-        <div className='hero-text'>
+
+      <div className="banner">
+        <div className="hero-text">
+
           <h1>
             Take your tastebuds <br />
             to a galaxy far, <br />

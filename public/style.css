@@ -405,6 +405,7 @@ form input {
   width: 300px;
 }
 
+
 /* CART */
 
 .cart-product-image {
@@ -420,10 +421,84 @@ form input {
   padding: 15px;
   margin-right: 5px;
   /* margin-top: 20px; */
+}
+
+/* CHECKOUT PAGE */
+.checkout-cta {
+  background-color: black;
+  color: white;
+  padding: 15px;
+  margin-top: 20px;
   border: none;
   border-radius: 5px;
 }
 
+
 .cart-short-desc {
   max-width: 20pxpx;
+}
+
+.expiration-year {
+  margin-left: 10px;
+  width: 176px;
+}
+
+.select-expiration {
+  padding: 10px;
+  border-radius: 5px;
+  border-color: #ff80e4;
+}
+
+#checkout-input {
+  height: 1000px;
+  display: flex;
+  background-color: #f9eaf9;
+  justify-content: center;
+  padding: 30px;
+}
+
+.input-title input {
+  margin-bottom: 15px;
+}
+
+.input-title label {
+  margin-bottom: 10px;
+}
+
+.input-title label small {
+  margin: 0px;
+}
+
+.checkout-content h3 {
+  margin-left: 15px;
+}
+
+/* CONFIRMATION PAGE */
+.confirmation-content {
+  display: flex;
+  height: 1000px;
+  background-color: #f9eaf9;
+  flex-direction: column;
+  align-items: center;
+}
+
+.confirmation-illustration {
+  margin-top: 40px;
+  height: 200px;
+  width: 200px;
+  object-fit: contain;
+  animation: rotation 4s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.confirmation-content h1 {
+  margin-top: 80px;
 }

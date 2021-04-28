@@ -18,6 +18,7 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
+/*
 router.put("/:orderId/:productId", async (req, res, next) => {
   try {
     let order;
@@ -60,6 +61,7 @@ router.put("/:orderId/:productId", async (req, res, next) => {
 //modify price
 
 //Need Post Request Route for guests to submit order
+*/
 
 router.put("/:userId", async (req, res, next) => {
   console.log("API REACHED ROUTE");
