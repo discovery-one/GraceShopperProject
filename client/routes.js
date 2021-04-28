@@ -1,6 +1,6 @@
-import React, { Component, Fragment } from "react";
-import { connect } from "react-redux";
-import history from "./history";
+import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
+import history from './history';
 import {
   withRouter,
   Route,
@@ -8,8 +8,8 @@ import {
   Redirect,
   Router,
   Link,
-} from "react-router-dom";
-import { Login, Signup } from "./components/AuthForm";
+} from 'react-router-dom';
+import { Login, Signup } from './components/AuthForm';
 //import AuthForm from "./components/Authform.js";
 import Home from './components/home';
 import SingleProduct from './components/SingleProduct';
@@ -24,7 +24,6 @@ import AdminHome from './components/AdminHome';
 import CreateProduct from './components/CreateProduct';
 import CheckoutForm from './components/CheckoutForm';
 import ConfirmationPage from './components/ConfirmationPage';
-
 
 /**
  * COMPONENT
@@ -79,8 +78,6 @@ class Routes extends Component {
  */
 const mapState = (state) => {
   return {
-    // Being 'logged in' for our purposes will be defined has having a state.auth that has a truthy id.
-    // Otherwise, state.auth will be an empty object, and state.auth.id will be falsey
     isAdmin: !!state.auth.admin,
   };
 };
@@ -93,6 +90,4 @@ const mapDispatch = (dispatch) => {
   };
 };
 
-// The `withRouter` wrapper makes sure that updates are not blocked
-// when the url changes
 export default withRouter(connect(mapState, mapDispatch)(Routes));

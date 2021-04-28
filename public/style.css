@@ -1,7 +1,6 @@
 * {
   box-sizing: border-box;
   font-family: 'IBM Plex Mono', monospace;
-  /* background-color: beige; */
 }
 
 body {
@@ -62,13 +61,6 @@ small {
 .nav-links li a:hover {
   color: #ff80e4;
 }
-
-/* .circle {
-  background: #ff80e4;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-} */
 
 /* HOMEPAGE */
 /* HERO AREA */
@@ -132,7 +124,6 @@ small {
   padding: 40px;
   overflow: hidden;
   margin-bottom: 0px;
-  /* background-color: beige; */
 }
 @keyframes animate {
   0% {
@@ -167,9 +158,8 @@ small {
 .home-illustration {
   height: 150px;
   width: 150px;
-  /* background-position: center center; */
+
   object-fit: contain;
-  /* border-radius: 50%; */
 }
 
 .column {
@@ -273,12 +263,6 @@ small {
   color: black;
 }
 
-/* .all-button-container {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-} */
-
 .all-add-to-cart {
   background-color: black;
   color: white;
@@ -371,7 +355,6 @@ form {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* flex-grow: 2; */
   margin: 1em;
 }
 
@@ -405,7 +388,6 @@ form input {
   width: 300px;
 }
 
-
 /* CART */
 
 .cart-product-image {
@@ -420,7 +402,6 @@ form input {
   color: white;
   padding: 15px;
   margin-right: 5px;
-  /* margin-top: 20px; */
 }
 
 /* CHECKOUT PAGE */
@@ -432,7 +413,6 @@ form input {
   border: none;
   border-radius: 5px;
 }
-
 
 .cart-short-desc {
   max-width: 20pxpx;
