@@ -48,13 +48,14 @@ export const checkoutCartThunk = (cart, userId) => {
       const response = await axios.put(`/api/cart/${userId}`, cart);
       const data = response.data;
       //      console.log(data);
-      dispatch(checkoutCart(cart, userId));
+      dispatch(checkoutCart(cart));
     } catch (e) {
       console.log(e);
     }
   };
 };
 
+/*
 export const editCartThunk = (cartItem, orderId) => {
   let productId = cartItem.product.id;
   return async (dispatch) => {
@@ -70,6 +71,7 @@ export const editCartThunk = (cartItem, orderId) => {
     }
   };
 };
+*/
 
 export default function cartReducer(cart = initialState, action) {
   let currentCart;

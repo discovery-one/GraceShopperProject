@@ -1,7 +1,7 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { fetchSingleProduct } from '../store/redux/singleProduct';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { connect } from "react-redux";
+import { fetchSingleProduct } from "../store/redux/singleProduct";
+import { Link } from "react-router-dom";
 
 export class SingleProduct extends React.Component {
   componentDidMount() {
@@ -19,7 +19,7 @@ export class SingleProduct extends React.Component {
         <div className="single-product-container">
           <h2 className="single-product-name">{product.name}</h2>
 
-          {product.soldAs === 'bulk' ? (
+          {product.soldAs === "bulk" ? (
             <div className="single-product-price">${price} per dozen</div>
           ) : (
             <div className="single-product-price">${price}</div>

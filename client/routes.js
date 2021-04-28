@@ -1,6 +1,6 @@
-import React, { Component, Fragment } from 'react';
-import { connect } from 'react-redux';
-import history from './history';
+import React, { Component, Fragment } from "react";
+import { connect } from "react-redux";
+import history from "./history";
 import {
   withRouter,
   Route,
@@ -8,20 +8,20 @@ import {
   Redirect,
   Router,
   Link,
-} from 'react-router-dom';
-import { Login, Signup } from './components/AuthForm';
+} from "react-router-dom";
+import { Login, Signup } from "./components/AuthForm";
 //import AuthForm from "./components/Authform.js";
-import Home from './components/home';
-import SingleProduct from './components/SingleProduct';
-import AllProducts from './components/AllProducts';
-import Cart from './components/cart';
-import { me } from './store';
-import Navbar from './components/navbar';
-import AdminProducts from './components/AdminProducts';
-import AdminSingleProduct from './components/AdminSingleProduct';
-import AdminUsers from './components/AdminUsers';
-import AdminHome from './components/AdminHome';
-import CreateProduct from './components/CreateProduct';
+import Home from "./components/home";
+import SingleProduct from "./components/SingleProduct";
+import AllProducts from "./components/AllProducts";
+import Cart from "./components/cart";
+import { me } from "./store";
+import Navbar from "./components/navbar";
+import AdminProducts from "./components/AdminProducts";
+import AdminSingleProduct from "./components/AdminSingleProduct";
+import AdminUsers from "./components/AdminUsers";
+import AdminHome from "./components/AdminHome";
+import CreateProduct from "./components/CreateProduct";
 
 /**
  * COMPONENT
