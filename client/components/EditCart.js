@@ -1,9 +1,8 @@
-
-import React from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import { addToCart, deleteCart } from "../store/redux/cart.js";
-
+import React from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { addToCart, deleteCart } from '../store/redux/cart.js';
+import { CheckoutForm } from '../components/CheckoutForm';
 
 class EditCart extends React.Component {
   constructor(props) {
@@ -83,15 +82,18 @@ class EditCart extends React.Component {
   render() {
     const checkOut = (
       <div>
-        <button
-          type='button'
-          id='checkout'
-          onClick={() =>
-            this.props.checkout(this.state.thisCart, this.state.thisQuantity)
-          }
-        >
-          Got To Checkout
-        </button>
+        <Link to="/checkout-form">
+          <button
+            type="button"
+            className="main-cta"
+            id="checkout"
+            onClick={() =>
+              this.props.checkout(this.state.thisCart, this.state.thisQuantity)
+            }
+          >
+            Go To Checkout
+          </button>
+        </Link>
       </div>
     );
     const products = this.state.thisCart;
@@ -103,22 +105,22 @@ class EditCart extends React.Component {
           {products !== undefined && products.length > 0 ? (
             <div>
               {checkOut}
-              <ul className='all-product-view'>
+              <ul className="all-product-view">
                 {products.map((product, index) => {
                   return (
                     <div key={product.id}>
                       <div>
-                        <div className='single-product-container'>
+                        <div className="single-product-container">
                           <Link to={`/products/${product.id}`}>
                             <img
-                              className='cart-product-image'
+                              className="cart-product-image"
                               src={product.imageUrl}
                             />
                           </Link>
                         </div>
-                        <div className='single-product-container'>
+                        <div className="single-product-container">
                           <h2>{product.name}</h2>
-                          <p className='cart-short-desc'>
+                          <p className="cart-short-desc">
                             {product.shortDescription}
                           </p>
                           <h6>${product.price / 100}</h6>
@@ -132,23 +134,23 @@ class EditCart extends React.Component {
                         </div>
 
                         <button
-                          className='cart-cta'
-                          type='button'
+                          className="cart-cta"
+                          type="button"
                           onClick={() => this.incrementHandler(product.id)}
                         >
                           {' '}
                           +{' '}
                         </button>
                         <button
-                          className='cart-cta'
-                          type='button'
+                          className="cart-cta"
+                          type="button"
                           onClick={() => this.decrementHandler(product.id)}
                         >
                           -
                         </button>
                         <button
-                          className='cart-cta'
-                          type='button'
+                          className="cart-cta"
+                          type="button"
                           onClick={() => this.removeHandler(product.id)}
                         >
                           Remove Item

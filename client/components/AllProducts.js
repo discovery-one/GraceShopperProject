@@ -56,53 +56,55 @@ class AllProducts extends React.Component {
     this.setState({ orderStatus: 'cart' });
   }
   checkoutCartHandler() {
-
     this.props.checkoutCart(this.props.cart, this.props.auth.id);
-    this.setState({ orderStatus: "products" });
+    this.setState({ orderStatus: 'products' });
 
     this.props.emptyCart();
   }
   render() {
     const products = this.props.products;
-    console.log(products);
     if (this.state.orderStatus === 'products') {
       return (
-        <div className='all-products-page'>
+        <div className="all-products-page">
           <h1>Shop All Galaxy Sweets</h1>
-          <button type='button' onClick={() => this.editCart()}>
+          <button
+            type="button"
+            className="main-cta"
+            onClick={() => this.editCart()}
+          >
             Visit Cart
           </button>
-          <ul className='all-product-view'>
+          <ul className="all-product-view">
             {products.map((product) => {
               return (
-                <div key={product.id} className='all-products'>
+                <div key={product.id} className="all-products">
                   <a
                     href={`/products/${product.id}`}
-                    className='all-product-card'
+                    className="all-product-card"
                   >
                     <div>
                       <img
-                        className='all-product-image'
+                        className="all-product-image"
                         src={product.imageUrl}
                       />
-                      <h3 className='all-product-name'>{product.name}</h3>
-                      <p className='short-desc'>{product.shortDescription}</p>
+                      <h3 className="all-product-name">{product.name}</h3>
+                      <p className="short-desc">{product.shortDescription}</p>
                       {product.soldAs === 'bulk' ? (
-                        <h5 className='all-product-price'>
+                        <h5 className="all-product-price">
                           ${product.price / 100} per dozen
                         </h5>
                       ) : (
-                        <h5 className='all-product-price'>
+                        <h5 className="all-product-price">
                           ${product.price / 100}
                         </h5>
                       )}
                     </div>
                   </a>
-                  <div className='all-button-container'>
+                  <div className="all-button-container">
                     <button
-                      type='button'
+                      type="button"
                       onClick={() => this.addToMyCart(product)}
-                      className='all-add-to-cart'
+                      className="all-add-to-cart"
                     >
                       Add To Cart
                     </button>
@@ -114,7 +116,6 @@ class AllProducts extends React.Component {
         </div>
       );
     } else {
-      console.log('Cart rendering.');
       return (
         <div>
           <EditCart

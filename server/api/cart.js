@@ -1,10 +1,10 @@
-const router = require("express").Router();
-const Order = require("../db/models/order");
-const Product = require("../db/models/product");
-const Sequelize = require("sequelize");
+const router = require('express').Router();
+const Order = require('../db/models/order');
+const Product = require('../db/models/product');
+const Sequelize = require('sequelize');
 
 //GET request for an order
-router.get("/:id", async (req, res, next) => {
+router.get('/:id', async (req, res, next) => {
   try {
     const { id } = req.params;
     const cartContents = await Order.findByPk(id, {
@@ -63,13 +63,13 @@ router.put("/:orderId/:productId", async (req, res, next) => {
 //Need Post Request Route for guests to submit order
 */
 
-router.put("/:userId", async (req, res, next) => {
-  console.log("API REACHED ROUTE");
+router.put('/:userId', async (req, res, next) => {
+  console.log('API REACHED ROUTE');
   try {
     const order = await Order.create({
       userId: req.params.userId,
     });
-    console.log("order is", order);
+    console.log('order is', order);
     let myCart = req.body;
     console.log(req.body);
     for (let i = 0; i < myCart.length; i++) {
@@ -84,7 +84,7 @@ router.put("/:userId", async (req, res, next) => {
     }
     res.sendStatus(201);
   } catch (error) {
-    console.log("API ERROR: " + error);
+    console.log('API ERROR: ' + error);
     res.sendStatus(501);
   }
 });
@@ -113,7 +113,7 @@ router.put('/:id/products/:productId', async (req, res, next) => {
 });
 */
 
-router.delete("/:id/products/:productId", async (req, res, next) => {
+router.delete('/:id/products/:productId', async (req, res, next) => {
   try {
     const { id } = req.params;
     let order = await Order.findOne({

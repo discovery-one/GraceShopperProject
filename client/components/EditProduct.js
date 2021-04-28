@@ -28,7 +28,6 @@ export class EditProduct extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     const { name, price, shortDescription, longDescription } = this.state;
     const { handleSubmit, handleChange } = this;
     return (

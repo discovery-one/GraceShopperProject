@@ -40,7 +40,6 @@ export const fetchProducts = () => {
 export const fetchCreateProduct = (product) => {
   return async (dispatch) => {
     const { data } = await axios.post('/api/products', product);
-    console.log(data);
     dispatch(createProduct(data));
   };
 };
